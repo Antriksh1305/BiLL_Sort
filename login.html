@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <link rel="icon" type=“image/png” href="FB ICON.png" />
     <title>Bill_Sort.com</title>
 </head>
+
 <body class="bg-gray-100">
     <div class="container mt-48 flex mx-auto items-center justify-center">
         <div class="left w-1/2">
@@ -17,16 +19,78 @@
             <p class="text-3xl mx-4 ">Bill SorT helps you manage money spent on an Outing</p>
         </div>
         <div class="right flex flex-col bg-white p-4 w-1/4 rounded-md relative">
-            <input class="h-9 my-2 px-2 rounded-md border border-1 border-gray-400 outline-blue-500" id="name" type="text" placeholder="Name">            
-            <input class="h-9 my-2 px-2 rounded-md border border-1 border-gray-400 outline-blue-500" id="email" type="text" placeholder="Email adddress or phone number">            
-            <input class="h-9 my-2 px-2 rounded-md border border-1 border-gray-400 outline-blue-500" id="password" type="password" placeholder="Password">
-            <button class="bg-blue-600 text-white font-bold py-2 my-2 rounded-md hover:bg-blue-500" id="login">Log In</button>
-            <span class="text-blue-500 text-center text-sm my-2 cursor-pointer hover:underline">Forgotten Password?</span>
+            <input class="h-9 my-2 px-2 rounded-md border border-1 border-gray-400 outline-blue-500" id="name"
+                type="text" placeholder="Username">
+            <input class="h-9 my-2 px-2 rounded-md border border-1 border-gray-400 outline-blue-500" id="email"
+                type="text" placeholder="Email adddress or phone number">
+            <input class="h-9 my-2 px-2 rounded-md border border-1 border-gray-400 outline-blue-500" id="password"
+                type="password" placeholder="Password">
+            <button class="bg-blue-600 text-white font-bold py-2 my-2 rounded-md hover:bg-blue-500" id="login"> <a href="index.html">Log In</a></button>
+            <span class="text-blue-500 text-center text-sm my-2 cursor-pointer hover:underline">Forgotten
+                Password?</span>
             <hr class="my-2">
-            <button class="bg-green-600 text-white text-lg py-2 my-2 rounded-md hover:bg-green-500 w-fit mx-auto py-2 px-3">Create New Account</button>
+            <button
+                class="bg-green-600 text-white text-lg py-2 my-2 rounded-md hover:bg-green-500 w-fit mx-auto py-2 px-3">Create
+                New Account</button>
             <!-- <span class="absolute -bottom-8 text-sm "><span class="font-bold hover:underline cursor-pointer">Create a Page</span> for a celebrity, brand or business.</span> -->
-        </span>
+            </span>
         </div>
     </div>
+
+    <!-- firebase import -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
+        import { getDatabase, ref, set, child, update, remove } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-database.js";
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        // Your web app's Firebase configuration
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDAwKG67huawZXkE_q9trYCkio1Bytzgz0",
+            authDomain: "hackodisa-antriksh.firebaseapp.com",
+            databaseURL: "https://hackodisa-antriksh-default-rtdb.firebaseio.com/",
+            projectId: "hackodisa-antriksh",
+            storageBucket: "hackodisa-antriksh.appspot.com",
+            messagingSenderId: "645793862191",
+            appId: "1:194717846327:web:a5c8467b2c57c7e398e8b2",
+        };
+
+        // // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        const db = getDatabase()
+
+        // var name = document.getElementById('sign_name')
+        // var email = document.getElementById('sign_email')
+        // var password = document.getElementById('sign_password')
+        // var signBtn = document.getElementById('signBtn')
+
+        var name = document.getElementById("name")
+        var email = document.getElementById("email")
+        var password = document.getElementById("password")
+        var login = document.getElementById("login")
+
+        login.addEventListener('click', function InsertLogin() {
+
+            console.log("name:", name.value)
+            console.log("email:", email.value)
+            console.log("password:", password.value)
+
+            set(ref(db, "Login/" + name.value), {
+                Name: name.value,
+                email: email.value,
+                password: password.value
+            })
+                .then(() => {
+                    console.log("success")
+                })
+                .catch((error) => {
+                    alert("Error", error)
+                })
+        })
+    </script>
+    <script src="login.js"></script>
 </body>
+
 </html>
