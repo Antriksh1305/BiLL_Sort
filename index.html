@@ -1,58 +1,79 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Javascript Excel</title>
+<html lang="en">
 
-    <!-- (A) LOAD SHEETJS FROM CDN -->
-    <!-- https://sheetjs.com/ -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-  </head>
-  <body>
-    <!-- (B) CLICK TO GENERATE DEMO EXCEL -->
-    <button id="demo">Download Demo Excel</button>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
 
-    <!-- (C) JAVASCRIPT -->
-    <script>
-    document.getElementById("demo").onclick = () => {
-      // (C1) DUMMY DATA
-      var data = [
-        ["Joa Doe", "finally its done"],
-        ["Job Doe", "finally its done"],
-        ["Joe Doe", "finally its done"],
-        ["Jon Doe", "finally its done"],
-        ["Joy Doe", "finally its done"]
-      ];
+<body>
+  <label>Bill Number</label>
+  <input id="billNo" type="text">
+  <label>Name</label>
+  <input id="name" type="text">
+  <label>Price</label>
+  <input id="price" type="text">
 
-      // (C2) CREATE NEW EXCEL "FILE"
-      var workbook = XLSX.utils.book_new(),
-          worksheet = XLSX.utils.aoa_to_sheet(data);
-      workbook.SheetNames.push("First");
-      workbook.Sheets["First"] = worksheet;
+  <button id="insert">Insert</button>
 
-      // (C3) TO BINARY STRING
-      var xlsbin = XLSX.write(workbook, {
-        bookType: "xlsx",
-        type: "binary"
-      });
+  <!-- <script src="index1.js"></script> -->
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
+    import { getDatabase, ref, set, child, update, remove } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-database.js";
 
-      // (C4) TO BLOB OBJECT
-      var buffer = new ArrayBuffer(xlsbin.length),
-          array = new Uint8Array(buffer);
-      for (var i=0; i<xlsbin.length; i++) {
-        array[i] = xlsbin.charCodeAt(i) & 0XFF;
-      }
-      var xlsblob = new Blob([buffer], {type:"application/octet-stream"});
-      delete array; delete buffer; delete xlsbin;
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+    // Your web app's Firebase configuration
 
-      // (C5) "FORCE DOWNLOAD"
-      var url = window.URL.createObjectURL(xlsblob),
-          anchor = document.createElement("a");
-      anchor.href = url;
-      anchor.download = "demo.xlsx";
-      anchor.click();
-      window.URL.revokeObjectURL(url);
-      delete anchor;
+    const firebaseConfig = {
+      apiKey: "AIzaSyDAwKG67huawZXkE_q9trYCkio1Bytzgz0",
+      authDomain: "hackodisa-antriksh.firebaseapp.com",
+      databaseURL: "https://hackodisa-antriksh-default-rtdb.firebaseio.com/",
+      projectId: "hackodisa-antriksh",
+      storageBucket: "hackodisa-antriksh.appspot.com",
+      messagingSenderId: "645793862191",
+      appId: "1:194717846327:web:a5c8467b2c57c7e398e8b2",
     };
-    </script>
-  </body>
+
+    // // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    const db = getDatabase()
+
+    var billNo = document.getElementById("billNo")
+    var name = document.getElementById("name")
+    var price = document.getElementById("price")
+
+    var insertBtn = document.getElementById("insert")
+
+    
+    insertBtn.addEventListener('click', function InsertData() {
+
+      console.log("bill", billNo.value)
+      console.log("name", name.value)
+      console.log("price", price.value)
+      console.log('called')
+
+      // console.log(db, ref(db ,"Bills"))
+      set(ref(db, "Bills/" + billNo.value), {
+        No: billNo.value,
+        Name: name.value,
+        Price: price.value
+      })
+        .then(() => {
+          // console.log("Success")
+          alert("Data inserted successfully!")
+        })
+      // .catch((error) =>{
+      //     // console.log("Error" , error)
+      //     alert("Error" , error)
+      // })
+    })
+  </script>
+
+</body>
+
 </html>
