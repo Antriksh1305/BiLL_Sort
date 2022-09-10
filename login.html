@@ -25,7 +25,8 @@
                 type="text" placeholder="Email adddress or phone number">
             <input class="h-9 my-2 px-2 rounded-md border border-1 border-gray-400 outline-blue-500" id="password"
                 type="password" placeholder="Password">
-            <button class="bg-blue-600 text-white font-bold py-2 my-2 rounded-md hover:bg-blue-500" id="login"> <a href="index.html">Log In</a></button>
+            <button class="bg-blue-600 text-white font-bold py-2 my-2 rounded-md hover:bg-blue-500" id="login">Log
+                In</button>
             <span class="text-blue-500 text-center text-sm my-2 cursor-pointer hover:underline">Forgotten
                 Password?</span>
             <hr class="my-2">
@@ -89,8 +90,13 @@
                     alert("Error", error)
                 })
         })
+        document.getElementById("login").addEventListener('click', function () {
+            setTimeout(function () {
+                location.href = "index.html";
+            }, 2000);
+        })
     </script>
-    <script src="login.js"></script>
+    <!-- <script src="login.js"></script> -->
 </body>
 
 </html>
