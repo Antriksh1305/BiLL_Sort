@@ -6,34 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- <link rel="icon" type=“image/png” href="FB ICON.png"/> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="icon" type=“image/png” href="logo1.png"/>
     <title>BiLL_Sort.com</title>
-    <style>
-        .slider right{
-            background-image: '../slider1.jpg';
-        }
-    </style>
 </head>
 <body>
-  <div class="navbaar flex justify-between items-center px-4 py-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+
+  <div class="navbaar flex justify-between items-center px-4 py-2 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 shadow-2xl">
     <div class="flex justify-center items-center md:order-2">
      <div class="hamburger inline-block p-4 cursor-pointer md:hidden">
         <div class="line h-0.5 w-6 my-1 bg-black"></div>
         <div class="line h-0.5 w-6 my-1 bg-black"></div>
         <div class="line h-0.5 w-6 my-1 bg-black"></div>
      </div>
-        <div class="search md:hidden">Admin</div>
+        <!-- <button class="search md:hidden">Admin</button> -->
     </div>
         <div><img class="h-10 w-10" src="logo1.png" alt="404"></div>
         <div class="cart text-center order-2 md:order-2 flex ">
-            <div class="search hidden md:block">Admin</div>
-            <div>Login</div>
+            <button class="search block fitem relative py-1 px-2 justify-center rounded-full px-16 bg-gradient-to-r  hover:from-green-400 hover:to-blue-500  from-pink-500 to-yellow-500 hover:shadow-2xl">Admin</button>
+            <!-- <div>Login</div> -->
         </div>
   </div>
 
+  <!-- <div class="sidebar bg-cyan-100 duration-300 absolute h-full px-10 w-80 -translate-x-0">sidebar</div> -->
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <p>Try scrolling the rest of the page to see this option in action.</p>
+  </div>
+</div>
+
 
   <div class="features w-fit pl-200 mx-auto mt-20 p-2">
-    <div class="flex space-x-20 ">
+    <!-- <div class="flex space-x-20 ">
 
       <div class="bg-blue-50 p-20 rounded-md shadow-2xl shadow-blue-500/50 space-y-4">
         <img class="h-12 w-12 mx-auto" src="logo2.png" alt="404">
@@ -51,7 +60,6 @@
 
     </div>
 
-
     <div class="flex my-20 space-x-20">
 
       <div class="bg-blue-50 p-20 rounded-md shadow-2xl shadow-blue-500/50 space-y-4">
@@ -68,19 +76,35 @@
         </div>
       </div>
 
-    </div>
+    </div> -->
 
-      <div class=" shadow-2xl shadow-blue-500/50 rounded-md p-10 bg-blue-50 space-y-4">
-        <img class="h-12 w-12 mx-auto" src="logo6.png" alt="404">
+      <div class=" shadow-2xl shadow-blue-500/50 rounded-md p-10 bg-blue-50 space-y-4 ">
+        <img class="h-12 w-12 mx-auto" src="logo2.png" alt="404">
         <div class="flex justify-center">
-        <button class="fitem bg-cyan-200 py-1 px-20 rounded-full hover:bg-cyan-300 hover:shadow-2xl bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ">Trip Over</button>
+        <button class="fitem bg-cyan-200 py-1 px-20 rounded-full hover:bg-cyan-300 hover:shadow-2xl bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ">Groups</button>
+        </div>
+      </div>
+      
+
+      <div class="shadow-2xl shadow-blue-500/50 rounded-md p-10 bg-blue-50 my-20 space-y-4">
+        <img class="h-12 w-12 mx-auto" src="logo3.png" alt="404">
+        <div class="flex justify-center">
+        <button class="fitem bg-cyan-200 py-1 justify-center mx-20 px-20 rounded-full hover:bg-cyan-300 hover:shadow-2xl bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ">Create Group</button>
         </div>
       </div>
 
       <div class="shadow-2xl shadow-blue-500/50 rounded-md p-10 bg-blue-50 my-20 space-y-4">
-        <img class="h-12 w-12 mx-auto" src="logo7.png" alt="404">
+        <img class="h-12 w-12 mx-auto" src="logo4.png" alt="404">
         <div class="flex justify-center">
-        <button class="fitem bg-cyan-200 py-1 justify-center mx-20 px-20 rounded-full hover:bg-cyan-300 hover:shadow-2xl bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ">Final Array</button>
+        <!-- <button class="fitem bg-cyan-200 py-1 justify-center mx-20 px-20 rounded-full hover:bg-cyan-300 hover:shadow-2xl bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ">Friends</button> -->
+        <button class="btn btn-primary bg-cyan-200 py-1 justify-center mx-20 px-20 rounded-full hover:bg-cyan-300 hover:shadow-2xl bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Friends</button>
+        </div>
+      </div>
+
+      <div class="shadow-2xl shadow-blue-500/50 rounded-md p-10 bg-blue-50 my-20 space-y-4">
+        <img class="h-12 w-12 mx-auto" src="logo5.png" alt="404">
+        <div class="flex justify-center">
+        <button class="fitem bg-cyan-200 py-1 justify-center mx-20 px-20 rounded-full hover:bg-cyan-300 hover:shadow-2xl bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ">Add Layer</button>
         </div>
       </div>
 
@@ -94,8 +118,9 @@
      <!-- <div class="slider flex flex-col-reverse md:flex-row">
         <div class="left"></div>
         <div class="right h-80 w-50 bg-[url('slider1.jpg')] ">
-            <img class="absolute" src="" alt="">
+            <!-- <img class="absolute" src="" alt=""> -->
         </div>
      </div>  -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">sajal</script>
 </body>
 </html>
